@@ -1,0 +1,1138 @@
+/* =========================================================
+   1. VARIABLES GLOBALES
+   =========================================================
+
+   Acá definimos los colores principales de la página.
+
+   La ventaja de usar variables es que si mañana querés
+   cambiar el color beige de toda la página, solamente
+   modificás una línea.
+*/
+
+:root {
+
+    /* Color de fondo principal */
+    --cream: #F8F4EF;
+
+    /* Beige utilizado para algunas secciones */
+    --beige: #E8DCCF;
+
+    /* Marrón elegante */
+    --brown: #8A6F5A;
+
+    /* Color oscuro para textos */
+    --dark: #2C2C2C;
+
+    /* Dorado utilizado como detalle */
+    --gold: #C6A769;
+
+    /* Blanco */
+    --white: #FFFFFF;
+}
+
+
+/* =========================================================
+   2. RESET
+   =========================================================
+
+   Los navegadores tienen algunos estilos predeterminados.
+
+   Por ejemplo:
+   - Los títulos tienen márgenes.
+   - Los párrafos tienen márgenes.
+   - Las imágenes pueden generar espacios.
+   - Los elementos utilizan diferentes box-sizing.
+
+   Acá "limpiamos" esos valores para tener mayor control.
+*/
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/*
+   Hace que los desplazamientos hacia las secciones
+   mediante los enlaces del menú sean suaves.
+
+   Por ejemplo:
+
+   href="#servicios"
+
+   hará que el desplazamiento sea más agradable.
+*/
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+/*
+   Estilos generales del body.
+*/
+
+body {
+
+    font-family: 'Montserrat', sans-serif;
+
+    background-color: var(--cream);
+
+    color: var(--dark);
+
+    line-height: 1.6;
+}
+
+
+/*
+   Quitamos el subrayado predeterminado
+   de todos los enlaces.
+*/
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+
+/*
+   Las imágenes nunca deberían superar el ancho
+   de su contenedor.
+*/
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+
+/* =========================================================
+   3. HEADER
+   =========================================================
+
+   Es la barra superior de navegación.
+*/
+
+.header {
+
+    /* Coloca los elementos uno al lado del otro */
+    display: flex;
+
+    /* Los separa horizontalmente */
+    justify-content: space-between;
+
+    /* Los centra verticalmente */
+    align-items: center;
+
+    /* Espacio interno */
+    padding: 25px 7%;
+
+    /* Fondo */
+    background-color: var(--cream);
+
+    /*
+       Mantiene el header visible mientras hacemos scroll.
+    */
+    position: sticky;
+
+    top: 0;
+
+    z-index: 1000;
+}
+
+
+/* =========================================================
+   LOGO
+   =========================================================
+*/
+
+.logo {
+
+    /*
+       Utilizamos la misma fuente elegante
+       que utilizaremos en los títulos.
+    */
+    font-family: 'Cormorant Garamond', serif;
+
+    font-size: 25px;
+
+    font-weight: 600;
+
+    letter-spacing: 2px;
+}
+
+
+/* =========================================================
+   NAV
+   =========================================================
+*/
+
+.nav {
+
+    display: flex;
+
+    gap: 35px;
+}
+
+
+/*
+   Cada enlace del menú.
+*/
+
+.nav a {
+
+    font-size: 13px;
+
+    font-weight: 500;
+
+    letter-spacing: 1px;
+
+    transition: color 0.3s ease;
+}
+
+
+/*
+   :hover significa:
+
+   "cuando el mouse está encima del elemento".
+
+   Cambiamos el color al pasar por encima.
+*/
+
+.nav a:hover {
+
+    color: var(--gold);
+}
+
+
+/* =========================================================
+   BOTONES
+   =========================================================
+*/
+
+.button {
+
+    /*
+       Convertimos el enlace en un elemento
+       visualmente parecido a un botón.
+    */
+
+    display: inline-block;
+
+    background-color: var(--dark);
+
+    color: var(--white);
+
+    padding: 14px 28px;
+
+    font-size: 12px;
+
+    font-weight: 500;
+
+    letter-spacing: 1px;
+
+    transition:
+        background-color 0.3s ease,
+        transform 0.3s ease;
+}
+
+
+/*
+   Efecto cuando pasamos el mouse por encima.
+*/
+
+.button:hover {
+
+    background-color: var(--brown);
+
+    /*
+       Lo mueve apenas hacia arriba.
+    */
+
+    transform: translateY(-2px);
+}
+
+
+/*
+   Versión específica del botón del header.
+*/
+
+.button-header {
+
+    padding: 11px 20px;
+}
+
+
+/* =========================================================
+   4. HERO
+   =========================================================
+
+   El Hero es la sección principal de la página.
+
+   Vamos a dividirla en dos columnas:
+
+   IZQUIERDA → texto
+   DERECHA  → imagen
+*/
+
+.hero {
+
+    /*
+       CSS Grid permite crear columnas fácilmente.
+    */
+
+    display: grid;
+
+    /*
+       Primera columna = 45%
+       Segunda columna = 55%
+    */
+
+    grid-template-columns: 45% 55%;
+
+    /*
+       Altura mínima.
+
+       85vh significa aproximadamente el 85%
+       de la altura de la pantalla.
+    */
+    height: 130vh;
+}
+
+
+/* =========================================================
+   CONTENIDO DEL HERO
+   =========================================================
+*/
+
+.hero-content {
+
+    /*
+       Usamos flex para poder centrar
+       verticalmente el contenido.
+    */
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    /*
+       Espacio interno.
+    */
+
+    padding: 80px 10%;
+}
+
+
+/* =========================================================
+   TEXTO PEQUEÑO DEL HERO
+   =========================================================
+*/
+
+.hero-eyebrow {
+
+    color: var(--brown);
+
+    font-size: 11px;
+
+    font-weight: 600;
+
+    letter-spacing: 3px;
+
+    margin-bottom: 20px;
+}
+
+
+/* =========================================================
+   TÍTULO PRINCIPAL
+   =========================================================
+*/
+
+.hero h1 {
+
+    /*
+       Fuente elegante.
+    */
+
+    font-family: 'Cormorant Garamond', serif;
+
+    /*
+       Tamaño grande para que sea
+       el elemento visual principal.
+    */
+
+    font-size: clamp(55px, 6vw, 90px);
+
+    /*
+       Hace que las líneas estén más juntas.
+    */
+
+    line-height: 0.95;
+
+    font-weight: 500;
+
+    margin-bottom: 30px;
+}
+
+
+/*
+   La palabra o frase dentro de <span>
+   puede recibir un estilo diferente.
+
+   En nuestro HTML tenemos:
+
+   <span>belleza natural.</span>
+*/
+
+.hero h1 span {
+
+    color: var(--brown);
+}
+
+
+/* =========================================================
+   DESCRIPCIÓN DEL HERO
+   =========================================================
+*/
+
+.hero-description {
+
+    max-width: 480px;
+
+    font-size: 15px;
+
+    font-weight: 300;
+
+    line-height: 1.8;
+
+    margin-bottom: 35px;
+}
+
+
+/* =========================================================
+   IMAGEN DEL HERO
+   =========================================================
+*/
+
+.hero-image {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/*
+   Imagen del Hero.
+*/
+
+.hero-image img {
+    width: 80%;
+    height: 80%;
+
+    object-fit: cover;
+    object-position: center;
+}
+
+
+/* =========================================================
+   5. ESTILOS GENERALES DE SECCIONES
+   =========================================================
+*/
+
+.services,
+.gallery {
+
+    /*
+       Espacio vertical de las secciones.
+    */
+
+    padding: 120px 7%;
+}
+
+
+/* =========================================================
+   ENCABEZADO DE SECCIÓN
+   =========================================================
+*/
+
+.section-heading {
+
+    max-width: 650px;
+
+    margin-bottom: 60px;
+}
+
+
+/*
+   Texto pequeño encima de los títulos.
+*/
+
+.section-eyebrow {
+
+    color: var(--brown);
+
+    font-size: 11px;
+
+    font-weight: 600;
+
+    letter-spacing: 3px;
+
+    margin-bottom: 15px;
+}
+
+
+/*
+   Títulos secundarios.
+*/
+
+.section-heading h2 {
+
+    font-family: 'Cormorant Garamond', serif;
+
+    font-size: clamp(40px, 5vw, 65px);
+
+    font-weight: 500;
+
+    line-height: 1;
+
+    margin-bottom: 20px;
+}
+
+
+/*
+   Texto descriptivo de las secciones.
+*/
+
+.section-heading > p:last-child {
+
+    font-size: 14px;
+
+    font-weight: 300;
+
+    max-width: 500px;
+}
+
+
+/* =========================================================
+   6. SERVICIOS
+   =========================================================
+*/
+
+.services {
+
+    background-color: var(--white);
+}
+
+
+/*
+   Creamos cuatro columnas.
+
+   Cada servicio ocupará una columna.
+*/
+
+.services-grid {
+
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 30px;
+}
+
+
+/* =========================================================
+   TARJETAS DE SERVICIOS
+   =========================================================
+*/
+
+.service-card {
+
+    padding: 35px;
+
+    border-top: 1px solid var(--beige);
+
+    /*
+       Transición para el hover.
+    */
+
+    transition:
+        transform 0.3s ease,
+        background-color 0.3s ease;
+}
+
+
+/*
+   Efecto al pasar el mouse.
+*/
+
+.service-card:hover {
+
+    background-color: var(--cream);
+
+    transform: translateY(-5px);
+}
+
+
+/* =========================================================
+   NÚMERO DEL SERVICIO
+   =========================================================
+*/
+
+.service-number {
+
+    font-family: 'Cormorant Garamond', serif;
+
+    font-size: 20px;
+
+    color: var(--gold);
+
+    margin-bottom: 25px;
+}
+
+
+/* =========================================================
+   TÍTULO DEL SERVICIO
+   =========================================================
+*/
+
+.service-card h3 {
+
+    font-family: 'Cormorant Garamond', serif;
+
+    font-size: 30px;
+
+    font-weight: 500;
+
+    margin-bottom: 15px;
+}
+
+
+/* =========================================================
+   DESCRIPCIÓN DEL SERVICIO
+   =========================================================
+*/
+
+.service-card p {
+
+    font-size: 13px;
+
+    font-weight: 300;
+
+    line-height: 1.8;
+
+    margin-bottom: 25px;
+}
+
+
+/* =========================================================
+   LINK DE SERVICIO
+   =========================================================
+*/
+
+.service-card a {
+
+    font-size: 11px;
+
+    font-weight: 600;
+
+    letter-spacing: 1px;
+
+    color: var(--brown);
+
+    transition: color 0.3s ease;
+}
+
+
+.service-card a:hover {
+
+    color: var(--gold);
+}
+
+
+/* =========================================================
+   7. GALERÍA
+   =========================================================
+*/
+
+.gallery {
+
+    background-color: var(--cream);
+}
+
+
+/*
+   Cuatro imágenes distribuidas en cuatro columnas.
+*/
+
+.gallery-grid {
+
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 15px;
+}
+
+
+/* =========================================================
+   IMÁGENES DE GALERÍA
+   =========================================================
+*/
+
+.gallery-grid img {
+
+    width: 100%;
+
+    /*
+       Definimos una altura uniforme.
+    */
+
+    height: 400px;
+
+    object-fit: cover;
+
+    /*
+       Efecto suave cuando hacemos hover.
+    */
+
+    transition:
+        transform 0.4s ease,
+        opacity 0.4s ease;
+}
+
+
+/*
+   Cuando pasamos el mouse sobre una imagen,
+   la hacemos ligeramente más grande.
+*/
+
+.gallery-grid img:hover {
+
+    transform: scale(1.02);
+
+    opacity: 0.9;
+}
+
+
+/* =========================================================
+   8. CONTACTO
+   =========================================================
+*/
+
+.contact {
+
+    /*
+       Fondo ligeramente diferente para
+       separar visualmente esta sección.
+    */
+
+    background-color: var(--beige);
+
+    padding: 120px 7%;
+
+    text-align: center;
+}
+
+
+/*
+   Limitamos el ancho del contenido
+   y lo centramos.
+*/
+
+.contact-content {
+
+    max-width: 700px;
+
+    margin: 0 auto;
+}
+
+
+/* =========================================================
+   TÍTULO DEL CONTACTO
+   =========================================================
+*/
+
+.contact h2 {
+
+    font-family: 'Cormorant Garamond', serif;
+
+    font-size: clamp(45px, 6vw, 70px);
+
+    font-weight: 500;
+
+    line-height: 1;
+
+    margin-bottom: 25px;
+}
+
+
+/*
+   Descripción del contacto.
+*/
+
+.contact p:not(.section-eyebrow) {
+
+    font-size: 14px;
+
+    font-weight: 300;
+
+    margin-bottom: 30px;
+}
+
+
+/* =========================================================
+   9. FOOTER
+   =========================================================
+*/
+
+.footer {
+
+    background-color: var(--dark);
+
+    color: var(--white);
+
+    padding: 50px 7%;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    gap: 30px;
+}
+
+
+/*
+   Nombre del estudio en el footer.
+*/
+
+.footer-logo {
+
+    font-family: 'Cormorant Garamond', serif;
+
+    font-size: 25px;
+
+    letter-spacing: 2px;
+}
+
+
+/*
+   Texto de copyright.
+*/
+
+.footer > p:not(.footer-logo) {
+
+    font-size: 11px;
+
+    font-weight: 300;
+
+    opacity: 0.7;
+}
+
+
+/* =========================================================
+   REDES SOCIALES
+   =========================================================
+*/
+
+.social-links {
+
+    display: flex;
+
+    gap: 25px;
+}
+
+
+.social-links a {
+
+    font-size: 11px;
+
+    letter-spacing: 1px;
+
+    transition: color 0.3s ease;
+}
+
+
+.social-links a:hover {
+
+    color: var(--gold);
+}
+
+
+/* =========================================================
+   10. RESPONSIVE - TABLET
+   =========================================================
+
+   @media permite modificar el CSS dependiendo
+   del tamaño de pantalla.
+
+   En este caso:
+
+   Si la pantalla tiene 900px o menos,
+   aplicamos estos cambios.
+*/
+
+@media (max-width: 900px) {
+
+
+    /* -----------------------------------------
+       HEADER
+       ----------------------------------------- */
+
+    .header {
+
+        padding: 20px 5%;
+    }
+
+
+    .nav {
+
+        gap: 20px;
+    }
+
+
+    /*
+       Ocultamos el botón del header para
+       tener más espacio.
+    */
+
+    .button-header {
+
+        display: none;
+    }
+
+
+    /* -----------------------------------------
+       HERO
+       ----------------------------------------- */
+
+    .hero {
+
+        /*
+           Pasamos de dos columnas
+           a una sola columna.
+        */
+
+        grid-template-columns: 1fr;
+    }
+
+
+    .hero-content {
+
+        padding: 100px 8%;
+    }
+
+
+    .hero-image {
+
+        height: 600px;
+    }
+
+
+    /* -----------------------------------------
+       SERVICIOS
+       ----------------------------------------- */
+
+    .services-grid {
+
+        /*
+           Pasamos de 4 columnas
+           a 2 columnas.
+        */
+
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+
+    /* -----------------------------------------
+       GALERÍA
+       ----------------------------------------- */
+
+    .gallery-grid {
+
+        /*
+           También usamos dos columnas.
+        */
+
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+
+    .gallery-grid img {
+
+        height: 350px;
+    }
+
+
+    /* -----------------------------------------
+       FOOTER
+       ----------------------------------------- */
+
+    .footer {
+
+        flex-direction: column;
+
+        text-align: center;
+    }
+
+}
+
+
+/* =========================================================
+   11. RESPONSIVE - CELULAR
+   =========================================================
+
+   A partir de 600px o menos consideramos
+   que estamos trabajando con una pantalla
+   pequeña.
+*/
+
+@media (max-width: 600px) {
+
+
+    /* -----------------------------------------
+       HEADER
+       ----------------------------------------- */
+
+    .header {
+
+        /*
+           Permitimos que los elementos
+           ocupen varias líneas si es necesario.
+        */
+
+        flex-wrap: wrap;
+
+        gap: 15px;
+
+        padding: 20px;
+    }
+
+
+    /*
+       El menú ocupa todo el ancho disponible.
+    */
+
+    .nav {
+
+        width: 100%;
+
+        justify-content: center;
+
+        gap: 18px;
+    }
+
+
+    .nav a {
+
+        font-size: 11px;
+    }
+
+
+    /* -----------------------------------------
+       HERO
+       ----------------------------------------- */
+
+    .hero-content {
+
+        padding: 80px 7%;
+    }
+
+
+    .hero h1 {
+
+        /*
+           Reducimos el tamaño del título
+           para celulares.
+        */
+
+        font-size: 55px;
+    }
+
+
+    .hero-image {
+
+        height: 450px;
+    }
+
+
+    /* -----------------------------------------
+       SECCIONES
+       ----------------------------------------- */
+
+    .services,
+    .gallery {
+
+        padding: 80px 7%;
+    }
+
+
+    /* -----------------------------------------
+       SERVICIOS
+       ----------------------------------------- */
+
+    .services-grid {
+
+        /*
+           Una tarjeta debajo de otra.
+        */
+
+        grid-template-columns: 1fr;
+    }
+
+
+    /* -----------------------------------------
+       GALERÍA
+       ----------------------------------------- */
+
+    .gallery-grid {
+
+        /*
+           Una imagen debajo de otra.
+        */
+
+        grid-template-columns: 1fr;
+    }
+
+
+    .gallery-grid img {
+
+        height: 450px;
+    }
+
+
+    /* -----------------------------------------
+       CONTACTO
+       ----------------------------------------- */
+
+    .contact {
+
+        padding: 90px 7%;
+    }
+
+
+    .contact h2 {
+
+        font-size: 48px;
+    }
+
+
+    /* -----------------------------------------
+       FOOTER
+       ----------------------------------------- */
+
+    .footer {
+
+        padding: 40px 7%;
+    }
+
+}
